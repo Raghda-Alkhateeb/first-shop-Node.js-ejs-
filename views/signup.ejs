@@ -1,0 +1,51 @@
+<%- include('component/header') %>
+
+<!-- <% for(let error of validationError ){%> -->
+   <!-- <p class="alert alert-danger"> -->
+    <!-- <%= error.msg %> -->
+   <!-- </p>  -->
+<!-- <% } %> -->
+<div class="container text-center mt-5">
+    <h3>Crete Account</h3>
+    <form action="/auth/signup"  method="POST" class="flex-column text-center" >
+        <div class=" my-3"><input type="text" class="form-controller" name="userName" placeholder="Enter User Name"> 
+        <% let userNameError=validationError.find(err=>err.param ==='userName')
+        if(userNameError){ %>
+            <p class="alert alert-danger mt-1">
+                <%= userNameError.msg %>
+               </p> 
+            <% } %>
+
+       
+        </div>
+        <div class=" my-3"><input type="email" class="form-controller" name="email" placeholder="Enter User Email"> </div>
+        <% let emailError=validationError.find(err=>err.param ==='email')
+        if(emailError){ %>
+            <p class="alert alert-danger mt-1">
+                <%= emailError.msg %>
+               </p> 
+            <% } %>
+        <div class=" my-3"><input type="password" class="form-controller" name="password" placeholder="Enter User password"> </div>
+        <% let  passwordError=validationError.find(err=>err.param ==='password')
+        if(passwordError){ %>
+            <p class="alert alert-danger mt-1">
+                <%= passwordError.msg %>
+               </p> 
+            <% } %>
+        
+        <div class=" my-3"><input type="password" class="form-controller" name="confirmPassword" placeholder="confirm your password"> </div>
+        
+        <% let  confirmPassword=validationError.find(err=>err.param ==='confirmPassword')
+        if(confirmPassword){ %>
+            <p class="alert alert-danger mt-1">
+                <%= confirmPassword.msg %>
+               </p> 
+            <% } %>
+        <div class=" my-3"><input type="submit" class="btn btn-primary" value="Sign Up"> </div>
+    </form>
+    <div>
+        Already have account? <a href="/auth/login">Logine</a>
+    </div>
+</div>
+
+<%- include('component/footer') %>

@@ -1,0 +1,24 @@
+
+<%- include('component/header') %>
+
+<% if (errorMessage){ %>
+<div class="user-message user-message--error">
+    <%= errorMessage %></div>
+<% } %>
+<div class="container text-center mt-5">
+    <h2>Login</h2>
+    <form action="/auth/login"  method="POST" class="flex-column text-center" >
+        <div class=" my-3"><input type="email" class="form-controller" name="email" placeholder="Enter User Email"> </div>
+       
+        <div class=" my-3"><input type="password" class="form-controller" name="password" placeholder="Enter User password"> </div>
+    
+       
+        <div class=" my-3"><input type="submit" class="btn btn-primary" value="Sign In"> </div>
+    </form>
+    <div>
+        Don't have account? <a href="/auth/signup">Sign Up</a>
+    </div>
+</div>
+
+
+<%- include('component/footer') %>
